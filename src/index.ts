@@ -1,6 +1,7 @@
-import express      from "express"
-import mongoose     from "mongoose"
+import express       from "express"
+import mongoose      from "mongoose"
 import coursesRouter from "./routes/coursesRouter";
+import authorRouter  from "./routes/authorRouter";
 main().catch(err => console.log(err));
 
 async function main() {
@@ -12,6 +13,7 @@ async function main() {
 app.use(express.urlencoded({extended: false}));
 
 app.use("/courses", coursesRouter)
+app.use("/author", authorRouter)
 
 app.listen(4000, () => {
   console.log("listening on port 4000")
